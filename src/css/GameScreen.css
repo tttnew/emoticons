@@ -1,0 +1,8 @@
+.GameScreen {
+  width: 80vh;
+  margin: 0 auto;
+}
+
+.GameScreen < div{
+    float:left; 
+}

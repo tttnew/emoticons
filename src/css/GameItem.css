@@ -1,0 +1,10 @@
+.GameItem {
+  width: 20vh;
+  height: 20vh;
+  float: left;
+  cursor: pointer;
+}
+.GameItem div {
+  text-align: center;
+  font-size: 14vh;
+}
