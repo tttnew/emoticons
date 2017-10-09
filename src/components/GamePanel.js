@@ -19,4 +19,5 @@ GamePanel.propTypes = {
   time: PropTypes.number
 };
 
+
 export default GamePanel;

@@ -20,10 +20,7 @@ class Game extends Component {
     return (
       <div>
         <GameScreen>
-          <GamePanel
-            moves={this.state.moves}
-            time={this.state.time}
-          />
+          <GamePanel moves={this.state.moves} time={this.state.time} />
           {this.state.codes.map((item, index) => {
             return (
               <GameItem onClick={this._onClick.bind(this, index)}>
@@ -35,7 +32,6 @@ class Game extends Component {
       </div>
     );
   }
-
 
   _resetGame() {
     this.setState({
@@ -78,36 +74,40 @@ class Game extends Component {
     });
 
     if (matchesQty === CODES_MATCH_QTY) {
-      setTimeout(function(){
-        this.handleGameComplete();
-      }.bind(this),1000);
-    } else if (moves === 0) {
-      setTimeout(function(){
-        this.handleMovesOut();
-      }.bind(this),1000);
-    }
-  }
-
-  timer(){
-    console.log('tick',this.state.time);
-    let time = this.state.time;
-    time -=1;
-    this.setState({
-      time:time
-    });
-    if(time===0){
-      this.handleTimeOut();
-    }
-  }
-  componentDidMount() {
-      this.timerID = setInterval(
+      setTimeout(
         function() {
-          this.timer();
+          this.handleGameComplete();
+        }.bind(this),
+        1000
+      );
+    } else if (moves === 0) {
+      setTimeout(
+        function() {
+          this.handleMovesOut();
         }.bind(this),
         1000
       );
     }
+  }
 
+  timer() {
+    let { time } = this.state;
+    time -= 1;
+    this.setState({
+      time: time
+    });
+    if (time === 0) {
+      this.handleTimeOut();
+    }
+  }
+  componentDidMount() {
+    this.timerID = setInterval(
+      function() {
+        this.timer();
+      }.bind(this),
+      1000
+    );
+  }
 
   handleMovesOut() {
     alert("Ходы закончились. Вы проиграли.");
