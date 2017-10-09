@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Game level={1} moves={20} time={60} />
+        <Game moves={20} time={60} />
       </div>
     );
   }

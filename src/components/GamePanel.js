@@ -15,7 +15,8 @@ const GamePanel = ({ moves, time }) => {
 )};
 
 GamePanel.propTypes = {
-  level: PropTypes.number
+  moves: PropTypes.number,
+  time: PropTypes.number
 };
 
 export default GamePanel;

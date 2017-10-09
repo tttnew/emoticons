@@ -185,4 +185,9 @@ class Game extends Component {
   }
 }
 
+Game.propTypes = {
+  moves: PropTypes.number,
+  time: PropTypes.number
+};
+
 export default Game;
