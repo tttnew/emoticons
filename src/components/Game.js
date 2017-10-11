@@ -22,6 +22,7 @@ class Game extends Component {
       <div>
         <GameScreen>
           <GamePanel moves={this.state.moves} time={this.state.time} />
+          <div>Найдите повторяющиеся смайлики</div>
           {this.state.codes.map((item, index) => {
             return (
               <GameItem onClick={this._onClick.bind(this, index)}>
