@@ -25,7 +25,7 @@ class Game extends Component {
           <div>Найдите повторяющиеся смайлики</div>
           {this.state.codes.map((item, index) => {
             return (
-              <GameItem onClick={this._onClick.bind(this, index)}>
+              <GameItem onClick={this._onClick.bind(this, index)} key={index}>
                 {String.fromCodePoint(item.isOpen ? item.code : 9775)}
               </GameItem>
             );
@@ -49,14 +49,12 @@ class Game extends Component {
   // define matches on click
   _onClick(index) {
     let codes = Array.from(this.state.codes);
-    let matchesQty = this.state.matchesQty;
-    let moves = this.state.moves;
+    let { matchesQty, moves, firstClickIndex } = this.state;
 
-    if (codes[index].isOpen) {
+    if (codes[index].isOpen || moves === 0) {
       return;
     }
     codes[index].isOpen = true;
-    let firstClickIndex = this.state.firstClickIndex;
     if (firstClickIndex === null) {
       firstClickIndex = index;
     } else {
